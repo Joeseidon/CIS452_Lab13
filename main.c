@@ -36,11 +36,19 @@ int main(int argc, char *argv[]){
 		perror("Unable to get Stat information");
 		exit(1);
 	}
-
+if(mode == 0){
 	if(link(argv[mode+1],argv[mode+2])<0){
 		perror("Enabled to create hard lin");
 		exit(0);
 	}
+}
+
+if(mode == 1){
+	if(symlink(argv[mode+1],argv[mode+2])<0){
+		perror("Failed to make symbolic link");
+		exit(0);
+	}
+}
 	
 	return 0;
 }
